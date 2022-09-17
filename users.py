@@ -31,6 +31,24 @@ class Users(Resource):
                         result["status"] = row[6]
                         jsonData.append(result)
                 return jsonData, 200
+            if id != 0:
+                with connection.cursor() as cursor:
+                    cursor.execute("""SELECT * from users where id = """+str(id)+""";""")
+                    data = cursor.fetchall()
+                    if len(data) > 0:
+                        for row in data:
+                            result = {}
+                            result["id"] = row[0]
+                            result["login"] = row[1]
+                            result["password"] = row[2]
+                            result["email"] = row[3]
+                            result["first_name"] = row[4]
+                            result["last_name"] = row[5]
+                            result["status"] = row[6]
+                            jsonData.append(result)
+                        return jsonData, 200
+                    else:
+                        return "User with this id does not exist", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
         finally:
