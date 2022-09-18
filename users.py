@@ -167,3 +167,34 @@ class Users(Resource):
             if connection:
                 connection.close()
                 print("[INFO] PostgreSQL connection closed")
+
+    def delete(self):
+        try:
+            connection = psycopg2.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=db_name
+            )
+            connection.autocommit = True
+            parser = reqparse.RequestParser()
+            parser.add_argument("id")
+            params = parser.parse_args()
+            if id != 0:
+                with connection.cursor() as cursor:
+                    cursor.execute("""SELECT * FROM users WHERE id = '""" + str(params["id"]) + """';""")
+                    data = cursor.fetchall()
+                    if len(data) != 0:
+                        with connection.cursor() as cursor:
+                            cursor.execute("""DELETE FROM users WHERE id = '""" + str(params["id"]) + """';""")
+                        return "User id = " + (params["id"]) + " delete!", 200
+                    else:
+                        return "User with this login does not exist", 404
+            else:
+                return "User with this login does not exist", 404
+        except Exception as ex:
+            print("[ERROR] Error while working with PostgreSQL", ex)
+        finally:
+            if connection:
+                connection.close()
+                print("[INFO] PostgreSQL connection closed")
