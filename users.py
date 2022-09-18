@@ -2,8 +2,6 @@ from flask_restful import Resource, reqparse
 from connect import host, user, password, db_name
 import psycopg2
 
-
-
 class Users(Resource):
     def get(self, id):
         try:
