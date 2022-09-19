@@ -1,7 +1,8 @@
 from flask import Flask
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api
 from users import Users
 from country import Country
+from city import City
 
 
 if __name__ == '__main__':
@@ -9,4 +10,5 @@ if __name__ == '__main__':
     api = Api(app)
     api.add_resource(Users, "/users", "/users/", "/users/<int:id>")
     api.add_resource(Country, "/country", "/country/", "/country/<int:id>")
+    api.add_resource(City, "/city", "/city/", "/city/<int:id>")
     app.run(debug=True)
