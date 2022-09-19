@@ -33,7 +33,7 @@ class Users(Resource):
                         result["password"] = row[11]
                         jsonData.append(result)
                 return jsonData, 200
-            if id != 0:
+            if id > 0:
                 with connection.cursor() as cursor:
                     cursor.execute("""SELECT * from users where id = """+str(id)+""";""")
                     data = cursor.fetchall()
@@ -178,7 +178,7 @@ class Users(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument("id")
             params = parser.parse_args()
-            if id != 0:
+            if id > 0:
                 with connection.cursor() as cursor:
                     cursor.execute("""SELECT * FROM users WHERE id = '""" + str(params["id"]) + """';""")
                     data = cursor.fetchall()
