@@ -86,7 +86,7 @@ class City(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument("id")
             params = parser.parse_args()
-            if id > 0:
+            if int(params["id"]) > 0:
                 with connection.cursor() as cursor:
                     cursor.execute("""SELECT * FROM city WHERE id = '""" + str(params["id"]) + """';""")
                     data = cursor.fetchall()
