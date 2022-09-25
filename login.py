@@ -5,9 +5,7 @@ import psycopg2
 class Login(Resource):
     def post(self):
         try:
-            passed = {
-                "status":  "True"
-            }
+            JsonData = []
             filed = {
                 "status": "False"
             }
@@ -23,11 +21,16 @@ class Login(Resource):
             parser.add_argument("password")
             params = parser.parse_args()
             with connection.cursor() as cursor:
-                cursor.execute("""SELECT * FROM users WHERE login = '""" + str(params["login"]) + """' 
+                cursor.execute("""SELECT id FROM users WHERE login = '""" + str(params["login"]) + """' 
                                and password = '""" + str(params["password"]) + """';""")
                 data = cursor.fetchall()
                 if len(data) != 0:
-                    return passed, 200
+                    for row in data:
+                        result = {}
+                        result["id"] = row[0]
+                        result["status"] = "True"
+                        JsonData.append(result)
+                    return JsonData, 200
                 else:
                     return filed, 404
 
