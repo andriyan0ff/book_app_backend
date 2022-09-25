@@ -4,6 +4,7 @@ from users import Users
 from country import Country
 from city import City
 from authors import Authors
+from login import Login
 
 
 if __name__ == '__main__':
@@ -13,4 +14,5 @@ if __name__ == '__main__':
     api.add_resource(Country, "/country", "/country/", "/country/<int:id>")
     api.add_resource(City, "/city", "/city/", "/city/<int:id>")
     api.add_resource(Authors, "/authors", "/authors/", "/authors/<int:id>")
+    api.add_resource(Login, "/login", "/login/")
     app.run(debug=True)
