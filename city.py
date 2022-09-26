@@ -86,18 +86,18 @@ class City(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument("id")
             params = parser.parse_args()
-            if int(params["id"]) > 0:
-                with connection.cursor() as cursor:
-                    cursor.execute("""SELECT * FROM city WHERE id = '""" + str(params["id"]) + """';""")
-                    data = cursor.fetchall()
-                    if len(data) != 0:
-                        with connection.cursor() as cursor:
-                            cursor.execute("""DELETE FROM city WHERE id = '""" + str(params["id"]) + """';""")
-                        return "City id = " + (params["id"]) + " delete!", 200
-                    else:
+            with connection.cursor() as cursor:
+                cursor.execute("""SELECT * FROM city WHERE id = '""" + str(params["id"]) + """';""")
+                data = cursor.fetchall()
+                if len(data) != 0:
+                    with connection.cursor() as cursor:
+                        cursor.execute("""
+                        UPDATE users SET city = NULL WHERE city = '""" + str(params["id"]) + """';
+                        DELETE FROM city WHERE id = '""" + str(params["id"]) + """';
+                        """)
+                    return "City id = " + (params["id"]) + " delete!", 200
+                else:
                         return "City with this id not found", 404
-            else:
-                return "City with this id not found", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
         finally:
