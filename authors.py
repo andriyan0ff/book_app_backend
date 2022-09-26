@@ -86,18 +86,18 @@ class Authors(Resource):
             parser = reqparse.RequestParser()
             parser.add_argument("id")
             params = parser.parse_args()
-            if int(params["id"]) > 0:
-                with connection.cursor() as cursor:
-                    cursor.execute("""SELECT * FROM authors WHERE id = '""" + str(params["id"]) + """';""")
-                    data = cursor.fetchall()
-                    if len(data) != 0:
-                        with connection.cursor() as cursor:
-                            cursor.execute("""DELETE FROM authors WHERE id = '""" + str(params["id"]) + """';""")
-                        return "Authors id = " + (params["id"]) + " delete!", 200
-                    else:
-                        return "Authors with this id not found", 404
-            else:
-                return "Authors with this id not found", 404
+            with connection.cursor() as cursor:
+                cursor.execute("""SELECT * FROM authors WHERE id = '""" + str(params["id"]) + """';""")
+                data = cursor.fetchall()
+                if len(data) != 0:
+                    with connection.cursor() as cursor:
+                        cursor.execute("""
+                        UPDATE books SET author = NULL WHERE author = '""" + str(params["id"]) + """';
+                        DELETE FROM authors WHERE id = '""" + str(params["id"]) + """';
+                        """)
+                    return "Authors id = " + (params["id"]) + " delete!", 200
+                else:
+                    return "Authors with this id not found", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
         finally:
