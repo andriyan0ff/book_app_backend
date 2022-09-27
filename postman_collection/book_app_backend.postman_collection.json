@@ -1,0 +1,662 @@
+{
+	"info": {
+		"_postman_id": "615515af-24ec-4875-a6cb-f7a6e0c90431",
+		"name": "book_app_backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18303306"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "view users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/users/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"users",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"first_name\": \"Ivan\",\r\n    \"last_name\": \"Strelcov\",\r\n    \"date_birth\": \"12.07.1991\",\r\n    \"email\": \"istrelcov@mail.ru\",\r\n    \"telegram\": \"@strelec\",\r\n    \"phone\": \"79861201234\",\r\n    \"country\": 2,\r\n    \"city\": 2,\r\n    \"city_index\": 417018,\r\n    \"login\": \"strela\",\r\n    \"password\": \"251874GG\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/users/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Вова\",\r\n    \"last_name\": \"Путин\",\r\n    \"date_birth\": \"14.05.1956\",\r\n    \"email\": \"putin@kremlin.gov\",\r\n    \"telegram\": \"@vova\",\r\n    \"phone\": \"79001237887\",\r\n    \"country\": 1,\r\n    \"city\": 1,\r\n    \"city_index\": 417418,\r\n    \"login\": \"president\",\r\n    \"password\": \"Gr0B568\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/users/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/users/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"strela\",\r\n    \"password\": \"251874GG\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/login/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Country",
+			"item": [
+				{
+					"name": "view country",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/country/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"country",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create country",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Italy\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/country/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"country",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete country",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/country/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"country",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update country",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 15,\r\n    \"name\": \"Poland\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/country/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"country",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "City",
+			"item": [
+				{
+					"name": "view city",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/city/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"city",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create city",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"St. Petersburg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/city/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"city",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete city",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/city/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"city",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update city",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tula\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/city/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"city",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "view authors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/authors/1",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create authors",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"St. Petersburg\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete authors",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update authors",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tula\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "view category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/category/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"category",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Научная фантастика\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/category/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/category/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tula\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"authors",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status",
+			"item": [
+				{
+					"name": "view status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/status/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"status",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create status",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Отдам даром\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/status/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"status",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete status",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/status/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"status",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update status",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/status/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"status",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
+
