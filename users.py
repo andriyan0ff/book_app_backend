@@ -183,7 +183,10 @@ class Users(Resource):
                 data = cursor.fetchall()
                 if len(data) != 0:
                     with connection.cursor() as cursor:
-                        cursor.execute("""DELETE FROM users WHERE id = '""" + str(params["id"]) + """';""")
+                        cursor.execute("""
+                        DELETE FROM library WHERE users = '""" + str(params["id"]) + """';
+                        DELETE FROM users WHERE id = '""" + str(params["id"]) + """';
+                        """)
                     return "User id = " + (params["id"]) + " delete!", 200
                 else:
                     return "User with this login does not exist", 404
