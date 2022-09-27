@@ -5,6 +5,7 @@ from country import Country
 from city import City
 from authors import Authors
 from login import Login
+from category import Category
 
 
 if __name__ == '__main__':
@@ -15,4 +16,5 @@ if __name__ == '__main__':
     api.add_resource(City, "/city", "/city/", "/city/<int:id>")
     api.add_resource(Authors, "/authors", "/authors/", "/authors/<int:id>")
     api.add_resource(Login, "/login", "/login/")
+    api.add_resource(Category, "/category", "/category/", "/category/<int:id>")
     app.run(debug=True)
