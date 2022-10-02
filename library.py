@@ -30,7 +30,7 @@ class Library(Resource):
                         result["status"] = row[3]
                         jsonData.append(result)
                 return jsonData, 200
-            if str(params["visible"]) == "" and str(params["users"]) != "" and str(params["book"]) == "":
+            elif str(params["visible"]) == "" and str(params["users"]) != "" and str(params["book"]) == "":
                 with connection.cursor() as cursor:
                     cursor.execute("""SELECT * FROM library WHERE users = '""" + str(params["users"]) + """';""")
                     data = cursor.fetchall()
