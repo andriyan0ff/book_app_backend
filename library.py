@@ -20,7 +20,7 @@ class Library(Resource):
             params = parser.parse_args()
             if str(params["visible"]) == "all" and str(params["user"]) == "" and str(params["book"]) == "":
                 with connection.cursor() as cursor:
-                    cursor.execute("""SELECT * FROM status;""")
+                    cursor.execute("""SELECT * FROM library;""")
                     data = cursor.fetchall()
                     for row in data:
                         result = {}
