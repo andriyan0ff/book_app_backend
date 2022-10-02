@@ -7,6 +7,7 @@ from authors import Authors
 from login import Login
 from category import Category
 from status import Status
+from books import Books
 
 
 if __name__ == '__main__':
@@ -19,4 +20,5 @@ if __name__ == '__main__':
     api.add_resource(Login, "/login", "/login/")
     api.add_resource(Category, "/category", "/category/", "/category/<int:id>")
     api.add_resource(Status, "/status", "/status/", "/status/<int:id>")
+    api.add_resource(Books, "/books", "/books/", "/books/<int:id>")
     app.run(debug=True)
