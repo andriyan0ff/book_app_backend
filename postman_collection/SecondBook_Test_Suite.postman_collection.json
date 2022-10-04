@@ -10,6 +10,76 @@
 			"name": "TestCase_User",
 			"item": [
 				{
+					"name": "country",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Получаем список регионов\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Забираем ID региона\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"country\", jsonData[0].id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/country/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"country",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "city",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Получаем список городов\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Забираем ID города\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.environment.set(\"city\", jsonData[0].id);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/city/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"city",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "create user",
 					"event": [
 						{
@@ -29,7 +99,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"{{first_name}}\",\r\n    \"last_name\": \"{{last_name}}\",\r\n    \"date_birth\": \"\",\r\n    \"email\": \"{{email}}\",\r\n    \"telegram\": \"\",\r\n    \"phone\": \"{{phone}}\",\r\n    \"country\": 8,\r\n    \"city\": 2,\r\n    \"city_index\": 455000,\r\n    \"login\": \"{{login}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"raw": "{\r\n    \"first_name\": \"{{first_name}}\",\r\n    \"last_name\": \"{{last_name}}\",\r\n    \"date_birth\": \"\",\r\n    \"email\": \"{{email}}\",\r\n    \"telegram\": \"\",\r\n    \"phone\": \"{{phone}}\",\r\n    \"country\": {{country}},\r\n    \"city\": {{city}},\r\n    \"city_index\": 455000,\r\n    \"login\": \"{{login}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
