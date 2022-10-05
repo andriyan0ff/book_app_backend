@@ -2,7 +2,7 @@ from flask_restful import Resource, reqparse
 from connect import host, user, password, db_name
 import psycopg2
 
-class Status(Resource):
+class StTransactions(Resource):
     def get(self, id):
         try:
             jsonData = []
