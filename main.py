@@ -10,6 +10,7 @@ from status import Status
 from books import Books
 from library import Library
 from version import Version
+from st_transactions import StTransactions
 
 
 if __name__ == '__main__':
@@ -25,4 +26,5 @@ if __name__ == '__main__':
     api.add_resource(Books, "/books", "/books/", "/books/<int:id>")
     api.add_resource(Library, "/library", "/library/")
     api.add_resource(Version, "/v", "/v/")
+    api.add_resource(StTransactions, "/statrans", "/statrans/")
     app.run(debug=True)
