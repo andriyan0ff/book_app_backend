@@ -5,8 +5,11 @@ import psycopg2
 class Transaction(Resource):
     def post(self):
         try:
-            status = {
-                "status": "created"
+            statusOk = {
+                "status": "create"
+            }
+            statusNo = {
+                "status": "error"
             }
             connection = psycopg2.connect(
                 host=host,
@@ -21,14 +24,29 @@ class Transaction(Resource):
             parser.add_argument("book")
             parser.add_argument("st transaction")
             params = parser.parse_args()
-            with connection.cursor() as cursor:
-                cursor.execute("""
-                INSERT INTO transactions (new_user, old_user, book, st_transactions)
-                VALUES
-                ('"""+ str(params["new user"]) +"""', '"""+ str(params["old user"]) +"""',
-                '"""+ str(params["book"]) +"""', '"""+ str(params["st transaction"]) +"""');
-                """)
-            return  status, 200
+            if params["new user"] != params["old user"]:
+                with connection.cursor() as cursor:
+                    cursor.execute("""
+                                   SELECT login FROM users WHERE id = '"""+ str(params["new user"]) +"""'
+                                   """)
+                    newUser = cursor.fetchall()
+                    cursor.execute("""
+                                   SELECT login FROM users WHERE id = '""" + str(params["old user"]) + """'
+                                   """)
+                    oldUser = cursor.fetchall()
+                    cursor.execute("""
+                                   INSERT INTO transactions (new_user, old_user, book, st_transactions)
+                                   VALUES
+                                   ('"""+ str(newUser[0][0]) +"""', '"""+ str(oldUser[0][0]) +"""',
+                                   '"""+ str(params["book"]) +"""', '"""+ str(params["st transaction"]) +"""');
+                                   """)
+                    cursor.execute("""
+                                   UPDATE library SET users = '"""+ str(params["new user"]) +"""',
+                                   status = 1 WHERE users = '""" + str(params["old user"]) + """'
+                                   """)
+                return statusOk, 200
+            else:
+                return statusNo, 400
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
         finally:
