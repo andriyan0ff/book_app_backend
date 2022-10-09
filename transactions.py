@@ -33,17 +33,25 @@ class Transaction(Resource):
                     data = cursor.fetchall()
                     if len(data) != 0: #проверяем что у юзера есть книга с которой он хочет провести трансакцию
                         cursor.execute("""
-                                       SELECT login FROM users WHERE id = '"""+ str(params["new user"]) +"""';
+                                       SELECT login, country.name, city.name FROM users 
+                                       INNER JOIN country ON users.country = country.id 
+                                       INNER JOIN city ON users.city = city.id 
+                                       WHERE users.id = '"""+ str(params["new user"]) +"""';
                                        """)
                         newUser = cursor.fetchall()
                         cursor.execute("""
-                                       SELECT login FROM users WHERE id = '""" + str(params["old user"]) + """';
+                                       SELECT login, country.name, city.name FROM users 
+                                       INNER JOIN country ON users.country = country.id 
+                                       INNER JOIN city ON users.city = city.id 
+                                       WHERE users.id = '""" + str(params["old user"]) + """';
                                        """)
                         oldUser = cursor.fetchall()
                         cursor.execute("""
-                                       INSERT INTO transactions (new_user, old_user, book, st_transactions)
+                                       INSERT INTO transactions (new_user, new_user_country, new_user_city,
+                                       old_user, old_user_country, old_user_city, book, st_transactions)
                                        VALUES
-                                       ('"""+ str(newUser[0][0]) +"""', '"""+ str(oldUser[0][0]) +"""',
+                                       ('"""+ str(newUser[0][0]) +"""', '"""+ str(newUser[0][1]) +"""', '"""+ str(newUser[0][2]) +"""',
+                                       '"""+ str(oldUser[0][0]) +"""', '"""+ str(oldUser[0][1]) +"""', '"""+ str(oldUser[0][2]) +"""',
                                        '"""+ str(params["book"]) +"""', '"""+ str(params["st transaction"]) +"""');
                                        """)
                         cursor.execute("""
