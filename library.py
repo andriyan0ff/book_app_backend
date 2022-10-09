@@ -70,10 +70,10 @@ class Library(Resource):
     def put(self):
         try:
             statusUpdate = {
-                "status": "update"
+                "status": "Update"
             }
             statusCreate = {
-                "status": "create"
+                "status": "Create"
             }
             statusError = {
                 "status": "Error"
@@ -112,6 +112,47 @@ class Library(Resource):
                                     '""" + str(params["status"]) + """');
                                     """)
                     return statusCreate, 201
+        except Exception as ex:
+            print("[ERROR] Error while working with PostgreSQL", ex)
+            return statusError, 400
+        finally:
+            if connection:
+                connection.close()
+                print("[INFO] PostgreSQL connection closed")
+
+    def delete(self):
+        try:
+            statusError = {
+                "status": "Error"
+            }
+            statusDelete = {
+                "status": "Delete"
+            }
+            connection = psycopg2.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=db_name
+            )
+            connection.autocommit = True
+            parser = reqparse.RequestParser()
+            parser.add_argument("book")
+            parser.add_argument("users")
+            params = parser.parse_args()
+            with connection.cursor() as cursor:
+                cursor.execute("""
+                                SELECT * FROM library WHERE book = '""" + str(params["book"]) + """'
+                                AND users = '""" + str(params["users"]) + """';
+                               """)
+                data = cursor.fetchall()
+                if len(data) != 0:
+                    cursor.execute("""
+                                    DELETE FROM library WHERE book = '""" + str(params["book"]) + """'
+                                    AND users = '""" + str(params["users"]) + """';
+                                    """)
+                    return statusDelete, 200
+                else:
+                    return statusError, 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
             return statusError, 400
