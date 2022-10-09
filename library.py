@@ -62,7 +62,59 @@ class Library(Resource):
                     return "sorry", 400
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
-            return "ERROR", 400
+        finally:
+            if connection:
+                connection.close()
+                print("[INFO] PostgreSQL connection closed")
+
+    def put(self):
+        try:
+            statusUpdate = {
+                "status": "update"
+            }
+            statusCreate = {
+                "status": "create"
+            }
+            statusError = {
+                "status": "Error"
+            }
+            connection = psycopg2.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=db_name
+            )
+            connection.autocommit = True
+            parser = reqparse.RequestParser()
+            parser.add_argument("book")
+            parser.add_argument("users")
+            parser.add_argument("status")
+            params = parser.parse_args()
+            with connection.cursor() as cursor:
+                cursor.execute("""SELECT * FROM library WHERE book = '""" + str(params["book"]) + """'
+                               AND users = '""" + str(params["users"]) + """';
+                               """)
+                data = cursor.fetchall()
+                if len(data) != 0:
+                    cursor.execute("""
+                                    UPDATE library SET
+                                    book = '""" + str(params["book"]) + """',
+                                    status = '""" + str(params["status"]) + """'
+                                    WHERE users = '""" + str(params["users"]) + """';
+                                    """)
+                    return statusUpdate, 200
+                else:
+                    cursor.execute("""
+                                    INSERT INTO library (book, users, status)
+                                    VALUES
+                                    ('""" + str(params["book"]) + """',
+                                    '""" + str(params["users"]) + """',
+                                    '""" + str(params["status"]) + """');
+                                    """)
+                    return statusCreate, 201
+        except Exception as ex:
+            print("[ERROR] Error while working with PostgreSQL", ex)
+            return statusError, 400
         finally:
             if connection:
                 connection.close()
