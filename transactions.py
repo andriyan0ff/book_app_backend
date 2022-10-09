@@ -31,7 +31,7 @@ class Transaction(Resource):
                                    AND book = '""" + str(params["book"]) + """';
                                    """)
                     data = cursor.fetchall()
-                    if len(data) != 0: #проверяем что у юзера есть книга с которой он хочет провести трансакцию
+                    if len(data) != 0:
                         cursor.execute("""
                                        SELECT login, country.name, city.name FROM users 
                                        INNER JOIN country ON users.country = country.id 
