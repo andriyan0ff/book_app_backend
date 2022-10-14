@@ -28,5 +28,5 @@ if __name__ == '__main__':
     api.add_resource(Library, "/library", "/library/")
     api.add_resource(Version, "/v", "/v/")
     api.add_resource(StTransactions, "/statrans", "/statrans/", "/statrans/<int:id>")
-    api.add_resource(Transaction, "/transaction", "/transaction/")
+    api.add_resource(Transaction, "/transaction", "/transaction/", "/transaction/<int:id>")
     app.run(debug=True)
