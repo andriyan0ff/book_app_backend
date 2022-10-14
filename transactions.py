@@ -69,3 +69,43 @@ class Transaction(Resource):
             if connection:
                 connection.close()
                 print("[INFO] PostgreSQL connection closed")
+
+    def get(self, id):
+        try:
+            jsonData = []
+            statusNo = {
+                "status": "error"
+            }
+            connection = psycopg2.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=db_name
+            )
+            connection.autocommit = True
+            if id == 0:
+                with connection.cursor() as cursor:
+                    cursor.execute("""
+                                    SELECT COUNT(st_transactions.name), st_transactions.name AS status FROM transactions 
+                                    INNER JOIN st_transactions ON transactions.st_transactions = st_transactions.id 
+                                    GROUP BY st_transactions.name 
+                                    ORDER BY COUNT DESC;
+                                    """)
+                    data = cursor.fetchall()
+                    if len(data) > 0:
+                        for row in data:
+                            result = {}
+                            result["count"] = row[0]
+                            result["transaction"] = row[1]
+                            jsonData.append(result)
+                        return jsonData, 200
+                    else:
+                        statusNo, 400
+            else:
+               statusNo, 400
+        except Exception as ex:
+            print("[ERROR] Error while working with PostgreSQL", ex)
+        finally:
+            if connection:
+                connection.close()
+                print("[INFO] PostgreSQL connection closed")
