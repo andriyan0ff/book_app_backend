@@ -100,9 +100,9 @@ class Transaction(Resource):
                             jsonData.append(result)
                         return jsonData, 200
                     else:
-                        statusNo, 400
+                        return statusNo, 400
             else:
-               statusNo, 400
+               return statusNo, 400
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
         finally:
