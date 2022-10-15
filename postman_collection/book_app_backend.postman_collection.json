@@ -15,13 +15,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{cxema}}{{adress}}/users/0",
+							"raw": "{{cxema}}{{adress}}/users/170",
 							"host": [
 								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"users",
-								"0"
+								"170"
 							]
 						}
 					},
@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 2,\r\n    \"first_name\": \"Ivan\",\r\n    \"last_name\": \"Strelcov\",\r\n    \"date_birth\": \"12.07.1991\",\r\n    \"email\": \"istrelcov@mail.ru\",\r\n    \"telegram\": \"@strelec\",\r\n    \"phone\": \"79861201234\",\r\n    \"country\": 2,\r\n    \"city\": 2,\r\n    \"city_index\": 417018,\r\n    \"login\": \"strela\",\r\n    \"password\": \"251874GG\"\r\n    }",
+							"raw": "{\r\n    \"id\": 788,\r\n    \"first_name\": \"Ivan\",\r\n    \"last_name\": \"Strelcov\",\r\n    \"date_birth\": \"12.07.1991\",\r\n    \"email\": \"istrelcov@mail.ru\",\r\n    \"telegram\": \"@strelec\",\r\n    \"phone\": \"79861201234\",\r\n    \"country\": 2,\r\n    \"city\": 2,\r\n    \"city_index\": 417018,\r\n    \"login\": \"strela\",\r\n    \"password\": \"251874GG\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,7 +61,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"first_name\": \"Вова\",\r\n    \"last_name\": \"Путин\",\r\n    \"date_birth\": \"14.05.1956\",\r\n    \"email\": \"putin@kremlin.gov\",\r\n    \"telegram\": \"@vova\",\r\n    \"phone\": \"79001237887\",\r\n    \"country\": 1,\r\n    \"city\": 1,\r\n    \"city_index\": 417418,\r\n    \"login\": \"president\",\r\n    \"password\": \"Gr0B568\"\r\n}",
+							"raw": "{\r\n    \"first_name\": \"Вова\",\r\n    \"last_name\": \"Путин\",\r\n    \"date_birth\": \"14.05.1956\",\r\n    \"email\": \"putin@kremlin.gov\",\r\n    \"telegram\": \"@vova\",\r\n    \"phone\": \"79001237887\",\r\n    \"country\": 2,\r\n    \"city\": 2,\r\n    \"city_index\": 417418,\r\n    \"login\": \"president\",\r\n    \"password\": \"Gr0B568\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -88,7 +88,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id\": 6\r\n}",
+							"raw": "{\r\n        \"id\": 45\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -146,13 +146,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{cxema}}{{adress}}/country/0",
+							"raw": "{{cxema}}{{adress}}/country/25",
 							"host": [
 								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"country",
-								"0"
+								"25"
 							]
 						}
 					},
@@ -323,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tula\"\r\n}",
+							"raw": "{\r\n    \"id\": 18,\r\n    \"name\": \"Tula\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -354,13 +354,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{cxema}}{{adress}}{{port}}/authors/1",
+							"raw": "{{cxema}}{{adress}}/authors/0",
 							"host": [
-								"{{cxema}}{{adress}}{{port}}"
+								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"authors",
-								"1"
+								"0"
 							]
 						}
 					},
@@ -373,7 +373,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"St. Petersburg\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Булгаков. М. А\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -381,9 +381,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"raw": "{{cxema}}{{adress}}/authors/",
 							"host": [
-								"{{cxema}}{{adress}}{{port}}"
+								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"authors",
@@ -408,9 +408,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"raw": "{{cxema}}{{adress}}/authors/",
 							"host": [
-								"{{cxema}}{{adress}}{{port}}"
+								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"authors",
@@ -427,7 +427,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 4,\r\n    \"name\": \"Tula\"\r\n}",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"Лермонтов. М. Ю.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -435,9 +435,9 @@
 							}
 						},
 						"url": {
-							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"raw": "{{cxema}}{{adress}}/authors/",
 							"host": [
-								"{{cxema}}{{adress}}{{port}}"
+								"{{cxema}}{{adress}}"
 							],
 							"path": [
 								"authors",
@@ -539,12 +539,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{cxema}}{{adress}}{{port}}/authors/",
+							"raw": "{{cxema}}{{adress}}/category/",
 							"host": [
-								"{{cxema}}{{adress}}{{port}}"
+								"{{cxema}}{{adress}}"
 							],
 							"path": [
-								"authors",
+								"category",
 								""
 							]
 						}
@@ -786,6 +786,237 @@
 							"path": [
 								"library",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add or update book",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book\": 2,\r\n    \"users\": 2,\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/library/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"library",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete book",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book\": 2,\r\n    \"users\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}{{port}}/library/",
+							"host": [
+								"{{cxema}}{{adress}}{{port}}"
+							],
+							"path": [
+								"library",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Version",
+			"item": [
+				{
+					"name": "version",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/v/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"v",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Status Transaction",
+			"item": [
+				{
+					"name": "view transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/statrans/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"statrans",
+								"0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Куплено\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/statrans/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"statrans",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete transaction",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/statrans/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"statrans",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tranaction",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"name\": \"Покупка\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/statrans/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"statrans",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transactions",
+			"item": [
+				{
+					"name": "create transaction",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"new user\": 2,\r\n    \"old user\": 3,\r\n    \"book\": 1,\r\n    \"st transaction\": 1 \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{cxema}}{{adress}}/transaction/",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"transaction",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count transactions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{cxema}}{{adress}}/transaction/0",
+							"host": [
+								"{{cxema}}{{adress}}"
+							],
+							"path": [
+								"transaction",
+								"0"
 							]
 						}
 					},
