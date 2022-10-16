@@ -1,5 +1,6 @@
 from flask import Flask
 from flask_restful import Api
+import logging
 from users import Users
 from country import Country
 from city import City
@@ -13,6 +14,7 @@ from version import Version
 from st_transactions import StTransactions
 from transactions import Transaction
 
+logging.basicConfig(filename='back.log', level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
 
 if __name__ == '__main__':
     app = Flask(__name__)
