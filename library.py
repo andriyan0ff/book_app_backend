@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse
 from connect import host, user, password, db_name
 import psycopg2
+import logging
 
 class Library(Resource):
     def post(self):
@@ -62,6 +63,7 @@ class Library(Resource):
                     return "sorry", 400
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()
@@ -114,6 +116,7 @@ class Library(Resource):
                     return statusCreate, 201
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
             return statusError, 400
         finally:
             if connection:
@@ -155,6 +158,7 @@ class Library(Resource):
                     return statusError, 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
             return statusError, 400
         finally:
             if connection:

@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse
 from connect import host, user, password, db_name
 import psycopg2
+import logging
 
 class Login(Resource):
     def post(self):
@@ -36,6 +37,7 @@ class Login(Resource):
 
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()

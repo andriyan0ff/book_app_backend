@@ -1,6 +1,7 @@
 from flask_restful import Resource, reqparse
 from connect import host, user, password, db_name
 import psycopg2
+import logging
 
 class Country(Resource):
     def get(self, id):
@@ -38,6 +39,7 @@ class Country(Resource):
                         return "id not found", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()
@@ -69,6 +71,7 @@ class Country(Resource):
                     return "A country with this name already exists", 409
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()
@@ -100,6 +103,7 @@ class Country(Resource):
                     return "Country with this id not found", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()
@@ -131,6 +135,7 @@ class Country(Resource):
                     return "Country with this id does not exist", 404
         except Exception as ex:
             print("[ERROR] Error while working with PostgreSQL", ex)
+            logging.warning(ex)
         finally:
             if connection:
                 connection.close()
